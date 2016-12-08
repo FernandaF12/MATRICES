@@ -1,0 +1,89 @@
+# include "datos.h"
+
+int x=0;
+int y=0;
+
+int mas;
+int casos;
+int num;
+int multiplica;
+int r;
+int division;
+
+
+
+void setup() {
+
+Serial.begin(9600);
+}
+
+void loop() {
+ 
+if(Serial.available()>0)
+{
+
+casos=Serial.read();
+
+switch(casos){
+  case 'A':
+
+ Serial.println("INICIO OPERACION SUMA:"); // SUMA
+ for (int x = 0; x < 20; x++) {
+    for (int y = 0; y < 3; y++) {
+      mas +=matriz[x][y];
+      
+       }
+      Serial.print(mas);
+    Serial.println("");
+    delay(200);
+    mas = 0;
+  }
+
+  break;
+  
+  case 'B':
+ 
+  Serial.println("INICIO OPERACION MULTIPLICACION:"); //MULTIPLICACION 
+
+for (int x = 0; x < 3; x++) {
+    for (int y = 0;y < 20; y++) {
+      multiplica= multiplica * matriz[y][x];
+    }
+      Serial.print(multiplica);
+    Serial.println("");
+    delay(750);
+    multiplica = 1;
+     }
+  break;
+
+  
+  case 'C':
+
+    Serial.println("INICIO OPERACION DIVISION:"); //DIVISION 
+    for (int x = 0; x < 20; x++) {
+    for (int y = 0; y < 3; y++) {
+      mas += matriz[x][y];
+      
+        mas=mas+num;
+            }
+         r=r+mas;
+         mas=0;
+         y=0;
+         
+  }
+   division=r/3;
+   Serial.print("DIVISION =");
+   Serial.print(division);
+
+break;
+  }
+    }
+      }
+
+
+
+
+
+
+  
+
